@@ -1,0 +1,23 @@
+@prefix geo1: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix veo: <http://www.github.com/d1egoprog/VEO/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.github.com/d1egoprog/VEO/Event/Ex> a veo:Event ;
+    veo:definedBy <http://www.github.com/d1egoprog/VEO/Location/Ex> ;
+    veo:energy "0.2"^^xsd:float ;
+    veo:focalMechanism "0.2"^^xsd:float ;
+    veo:hasSourceLocation <http://www.github.com/d1egoprog/VEO/Location/Ex> ;
+    veo:isIdentifiedAs <http://www.github.com/d1egoprog/VEO/VolcanoTectonic/Ex> ;
+    veo:magnitude "0.2"^^xsd:float .
+
+<http://www.github.com/d1egoprog/VEO/VolcanoTectonic/Ex> a veo:VolcanoTectonic .
+
+<http://www.w3.org/2003/01/geo/wgs84_pos#Place/Ex> a geo1:Place .
+
+<http://www.github.com/d1egoprog/VEO/Location/Ex> a veo:AlertLevel,
+        veo:Location ;
+    veo:affects <http://www.w3.org/2003/01/geo/wgs84_pos#Place/Ex> ;
+    geo1:ele "0.2"^^xsd:float ;
+    geo1:lat "0.2"^^xsd:float ;
+    geo1:long "0.2"^^xsd:float .
+

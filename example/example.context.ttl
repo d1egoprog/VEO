@@ -1,0 +1,25 @@
+@prefix geo1: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix veo: <http://www.github.com/d1egoprog/VEO/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.github.com/d1egoprog/VEO/SeismicNetwork/Ex> a veo:SeismicNetwork ;
+    sosa:hosts <http://www.github.com/d1egoprog/VEO/Station/Ex> .
+
+<http://www.github.com/d1egoprog/VEO/Instrument/Ex> a veo:Instrument ;
+    veo:axis "3.0"^^xsd:float ;
+    veo:delta "0.5"^^xsd:float ;
+    veo:positivePolarity "0.3"^^xsd:float ;
+    veo:signalType "Analog"^^xsd:string ;
+    veo:unit "Displacement"^^xsd:string ;
+    sosa:hosts <http://www.github.com/d1egoprog/VEO/Station/Ex> .
+
+<http://www.w3.org/2003/01/geo/wgs84_pos#Point/Ex> a geo1:Point ;
+    geo1:ele "0.35"^^xsd:float ;
+    geo1:lat "0.2"^^xsd:float ;
+    geo1:long "0.2"^^xsd:float .
+
+<http://www.github.com/d1egoprog/VEO/Station/Ex> a veo:Station ;
+    veo:isComposedBy <http://www.github.com/d1egoprog/VEO/Instrument/Ex> ;
+    veo:isLocatedIn <http://www.w3.org/2003/01/geo/wgs84_pos#Point/Ex> .
+

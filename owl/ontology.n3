@@ -1,0 +1,1 @@
+[a rdfg:Graph;rdflib:storage [a rdflib:Store;rdfs:label 'Memory']].

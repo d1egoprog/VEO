@@ -1,0 +1,5 @@
+*commit.cmd
+data/*.csv
+knowledgegraph/query_naturallanguage.py
+knowledgegraph/mapping.ttl
+sandbox/*
