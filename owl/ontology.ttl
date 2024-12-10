@@ -15,11 +15,23 @@ veo:affects a rdf:Property ;
     rdfs:domain veo:AlertLevel ;
     rdfs:range geo1:Place .
 
+veo:amplitude a rdf:Property ;
+    rdfs:label "amplitude" ;
+    rdfs:comment "The displacement or speed of the ground equivalent to the seismic wave motion." ;
+    rdfs:domain veo:GroundDisplacement ;
+    rdfs:range xsd:float .
+
 veo:axis a rdf:Property ;
     rdfs:label "axis" ;
     rdfs:comment "Indicates the axis orientation for the recorded seismic data." ;
     rdfs:domain veo:Instrument ;
     rdfs:range xsd:short .
+
+veo:component a rdf:Property ;
+    rdfs:label "component" ;
+    rdfs:comment "Represents the ground motion component along one of the directions V, NS, EW." ;
+    rdfs:domain veo:GroundDisplacement ;
+    rdfs:range xsd:string .
 
 veo:dataPoints a rdf:Property ;
     rdfs:label "data Points" ;
@@ -74,9 +86,7 @@ veo:generates a rdf:Property ;
 
 veo:hasAmplitude a rdf:Property ;
     rdfs:label "has Amplitude" ;
-    rdfs:comment "Represents the amplitude associated with a component, indicating the magnitude of the signal or phenomenon measured by the component." ;
-    rdfs:domain veo:Component ;
-    rdfs:range veo:Amplitude .
+    rdfs:comment "Represents the amplitude associated with a component, indicating the magnitude of the signal or phenomenon measured by the component." .
 
 veo:hasLengthOf a rdf:Property ;
     rdfs:label "has Length Of" ;
@@ -119,7 +129,7 @@ veo:isListOf a rdf:Property ;
     rdfs:label "is List Of" ;
     rdfs:comment "Denotes the inner decomposition of several events for a higher level container." ;
     rdfs:domain veo:DataPoint ;
-    rdfs:range veo:Component .
+    rdfs:range veo:GroundDisplacement .
 
 veo:isLocatedIn a rdf:Property ;
     rdfs:label "is Located In" ;
@@ -169,6 +179,24 @@ geo1:long a rdf:Property ;
     rdfs:domain geo1:Point ;
     rdfs:range xsd:float .
 
+time:hasBeginning a rdf:Property ;
+    rdfs:label "Has Beginning" ;
+    rdfs:comment "Beginning of a temporal entity" ;
+    rdfs:domain time:Interval ;
+    rdfs:range time:Instant .
+
+time:hasDateTimeStamp a rdf:Property ;
+    rdfs:label "Has Date Time Stamp" ;
+    rdfs:comment "Position of an instant, expressed using xsd:dateTimeStamp" ;
+    rdfs:domain time:Instant ;
+    rdfs:range xsd:dateTimeStamp .
+
+time:hasEnd a rdf:Property ;
+    rdfs:label "Has End" ;
+    rdfs:comment "End of a temporal entity." ;
+    rdfs:domain time:Interval ;
+    rdfs:range time:Instant .
+
 sosa:hasMember a rdf:Property ;
     rdfs:label "has Member" ;
     rdfs:comment "Denotes the member of an observation collection, such as an individual observation or data point." ;
@@ -208,116 +236,114 @@ sosa:phenomenonTime a rdf:Property ;
     dcterms:title "Volcano Event Ontology (VEO)"^^xsd:string ;
     vann:preferredNamespacePrefix "veo"^^xsd:string ;
     vann:preferredNamespaceUri <http://www.github.com/d1egoprog/VEO> ;
+    rdfs:seeAlso "https://doi.org/10.1109/JIOT.2022.3148786"^^xsd:anyURI,
+        "https://github.com/d1egoprog/VEO"^^xsd:anyURI ;
     owl:versionInfo "5.7"^^xsd:float .
-
-veo:Amplitude a owl:Class ;
-    rdfs:label "Amplitude" ;
-    rdfs:comment "The displacement or speed of the ground equivalent to the seismic wave motion." ;
-    rdfs:subClassOf sosa:ObservedProperty .
 
 veo:Location a owl:Class ;
     rdfs:label "Source Location" ;
-    rdfs:comment "The point from which the rupture originates, calculated through data triangulation." ;
+    rdfs:comment "The point from which the rupture originates, calculated through data triangulation."@EN ;
     rdfs:subClassOf geo1:Point .
 
 geo1:Place a owl:Class ;
     rdfs:label "Place" ;
-    rdfs:comment "A place is an entity in geographic space that can be described by a point, polygon, or other geospatial representation." .
-
-time:Instant a owl:Class ;
-    rdfs:label "Instant" ;
-    rdfs:comment "Represents a specific point in time." .
-
-time:Interval a owl:Class ;
-    rdfs:label "Interval" ;
-    rdfs:comment "Represents a duration of time between two instants." .
+    rdfs:comment "A place is an entity in geographic space that can be described by a point, polygon, or other geospatial representation."@EN .
 
 sosa:Observation a owl:Class ;
     rdfs:label "Observation" ;
-    rdfs:comment "Describes measurement values captured by the sensor." .
+    rdfs:comment "Describes measurement values captured by the sensor."@EN .
 
 sosa:ObservedProperty a owl:Class ;
     rdfs:label "Observable Property" ;
-    rdfs:comment "Represents an observable property or quality of the investigated phenomena." .
+    rdfs:comment "Represents an observable property or quality of the investigated phenomena."@EN .
 
 sosa:Platform a owl:Class ;
     rdfs:label "Platform" ;
-    rdfs:comment "The container that hosts other entities." .
+    rdfs:comment "The container that hosts other entities."@EN .
 
 sosa:Sensor a owl:Class ;
     rdfs:label "Sensor" ;
-    rdfs:comment "A device, agent, or software for a sensing task." .
+    rdfs:comment "A device, agent, or software for a sensing task."@EN .
 
 veo:Blast a owl:Class ;
     rdfs:label "Blast" ;
-    rdfs:comment "Describes blasts such as quarry blasts or sea explosions due to illegal fishing." ;
+    rdfs:comment "Describes blasts such as quarry blasts or sea explosions due to illegal fishing."@EN ;
     rdfs:subClassOf sosa:FeatureOfInterest .
-
-veo:Component a owl:Class ;
-    rdfs:label "Component" ;
-    rdfs:comment "Represents the ground motion component along one of the directions V, NS, EW." .
 
 veo:LongPeriod a owl:Class ;
     rdfs:label "Long Period" ;
-    rdfs:comment "Describes LP events." ;
+    rdfs:comment "Describes LP events."@EN ;
     rdfs:subClassOf sosa:FeatureOfInterest .
 
 veo:Noise a owl:Class ;
     rdfs:label "Noise" ;
-    rdfs:comment "Describes the background seismic signal." ;
+    rdfs:comment "Describes the background seismic signal."@EN ;
     rdfs:subClassOf sosa:FeatureOfInterest .
 
 veo:SeismicNetwork a owl:Class ;
     rdfs:label "Seismic Network" ;
-    rdfs:comment "An ensemble of seismic stations located at a certain distance from each other." ;
+    rdfs:comment "An ensemble of seismic stations located at a certain distance from each other."@EN ;
     rdfs:subClassOf sosa:Platform .
 
 veo:VolcanoTectonic a owl:Class ;
     rdfs:label "Volcano Tectonic" ;
-    rdfs:comment "Describes VT earthquakes." ;
+    rdfs:comment "Describes VT earthquakes."@EN ;
     rdfs:subClassOf sosa:FeatureOfInterest .
 
 sosa:ObservationCollection a owl:Class ;
     rdfs:label "Observation Collection" ;
-    rdfs:comment "Represents homogeneous collections of observations." .
+    rdfs:comment "Represents homogeneous collections of observations."@EN .
 
 veo:AlertLevel a owl:Class ;
     rdfs:label "Alert Level" ;
-    rdfs:comment "Provides the alerting level evaluated after an event detection and severity estimation." .
+    rdfs:comment "Provides the alerting level evaluated after an event detection and severity estimation."@EN .
 
 veo:DataPointMatrix a owl:Class ;
     rdfs:label "Data Point Matrix" ;
-    rdfs:comment "A collection of Data Point Arrays gathered by each sensor of the Seismic Network." ;
+    rdfs:comment "A collection of Data Point Arrays gathered by each sensor of the Seismic Network."@EN ;
     rdfs:subClassOf sosa:ObservationCollection .
+
+veo:GroundDisplacement a owl:Class ;
+    rdfs:label "Ground Displacement" ;
+    rdfs:comment "The earth measurement measured by the wave amplitude and the component."@EN ;
+    rdfs:subClassOf sosa:ObservedProperty .
 
 veo:Station a owl:Class ;
     rdfs:label "Station" ;
-    rdfs:comment "A station composed of one or more sensors, equipped with a data logger or transmission apparatus." .
+    rdfs:comment "A station composed of one or more sensors, equipped with a data logger or transmission apparatus."@EN .
+
+time:Interval a owl:Class ;
+    rdfs:label "Interval" ;
+    rdfs:comment "Represents a duration of time between two instants."@EN .
 
 veo:DataPoint a owl:Class ;
     rdfs:label "Data Point" ;
-    rdfs:comment "An individual measurement of the wave signal gathered by a sensor device at a given time instant." ;
+    rdfs:comment "An individual measurement of the wave signal gathered by a sensor device at a given time instant."@EN ;
     rdfs:subClassOf sosa:Observation .
+
+time:Instant a owl:Class ;
+    rdfs:label "Instant" ;
+    rdfs:comment "Represents a specific point in time."@EN .
 
 sosa:FeatureOfInterest a owl:Class ;
     rdfs:label "Feature of Interest" ;
-    rdfs:comment "Describes the feature whose property is estimated in the course of an observation." .
+    rdfs:comment "Describes the feature whose property is estimated in the course of an observation."@EN .
 
 veo:DataPointArray a owl:Class ;
     rdfs:label "Data Point Array" ;
-    rdfs:comment "A sequence of Data Points collected in a given time interval by a station sensor." ;
+    rdfs:comment "A sequence of Data Points collected in a given time interval by a station sensor."@EN ;
     rdfs:subClassOf sosa:ObservationCollection .
 
 geo1:Point a owl:Class ;
     rdfs:label "Point" ;
-    rdfs:comment "A geographic point, described by a latitude, longitude, and altitude." .
+    rdfs:comment "A geographic point, described by a latitude, longitude, and altitude."@EN .
 
 veo:Event a owl:Class ;
     rdfs:label "Event" ;
-    rdfs:comment "Describes the source event detected, such as earth ground motions identified by the sensor network." .
+    rdfs:comment "Describes the source event detected, such as earth ground motions identified by the sensor network."@EN .
 
 veo:Instrument a owl:Class ;
     rdfs:label "Instrument" ;
-    rdfs:comment "A device that extends sosa:Sensor with additional properties like measuring unit and signal type." ;
+    rdfs:comment "A device that extends sosa:Sensor with additional properties like measuring unit and signal type."@EN ;
     rdfs:subClassOf sosa:Sensor .
 
