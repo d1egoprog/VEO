@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Rincon-Yanez"
+  given-names: "Diego"
+  orcid: "https://orcid.org/0000-0002-8982-1678"
+- family-names: "Senatore"
+  given-names: "Sabrina"
+  orcid: "https://orcid.org/0000-0002-7127-4290"
+title: "VEO"
+version: 5.7
+doi: 10.5281/zenodo.1234
+date-released: 2024-12-19
+url: "https://github.com/d1egoprog/VEO"

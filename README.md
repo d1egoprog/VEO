@@ -1,8 +1,10 @@
 # Volcano Event Ontology (VEO)
 
+![Version](https://img.shields.io/badge/version-5.7-blue)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14522461.svg)](https://doi.org/10.5281/zenodo.14522461)
 ![License](https://img.shields.io/github/license/d1egoprog/VEO)
 ![Documentation Status](https://img.shields.io/badge/docs-complete-brightgreen)
-![Version](https://img.shields.io/badge/version-5.7-blue)
+
 ![GitHub issues](https://img.shields.io/github/issues/d1egoprog/VEO)
 ![GitHub forks](https://img.shields.io/github/forks/d1egoprog/VEO)
 ![GitHub stars](https://img.shields.io/github/stars/d1egoprog/VEO)
@@ -73,7 +75,7 @@ Contributions to VEO are welcome! Whether it's reporting issues, suggesting enha
 
 ## Troubleshooting
 
-If there are any troubles or you have any questions, please open an issue stating the encountered problem. Contributing is always welcome. The [Github repository Issues URL](https://github.com/d1egoprog/KG-SLR4LLM/issues).  And contributing is always welcome. The [Github repository URL](https://github.com/d1egoprog/KG-SLR4LLM).
+If there are any troubles or you have any questions, please open an issue stating the encountered problem. Contributing is always welcome. The [Github repository Issues URL](https://github.com/d1egoprog/VEO/issues).  And contributing is always welcome. The [Github repository URL](https://github.com/d1egoprog/VEO).
 
 
 Happy hacking!! 🖖🖖.
